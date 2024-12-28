@@ -68,9 +68,9 @@ def run_chai(label: str, seq: str, smiles: str, output_dir: str, cofactor_smiles
 
     if not os.path.exists(output_subdir):
         os.system(f"mkdir {output_subdir}")
-        print(output_subdir)
-        output_subdir = Path(output_subdir)
-        # CHeck this is OK
+        output_subdir = Path(checkNgen_folder(output_subdir))
+
+
         fasta_path = Path(f"{output_subdir}/{label}.fasta")
         fasta_path.write_text(example_fasta)
 
@@ -126,6 +126,9 @@ def run_chai_df(
 
     if cofactor_column not in df.columns:
         df[cofactor_column] = ""
+
+    if ligand_column not in df.columns:
+        df[ligand_column] = ""
 
     for label, seq, smiles, cofactor_smiles in df[
         [entry_column, seq_column, ligand_column, cofactor_column]

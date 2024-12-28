@@ -2,8 +2,8 @@
 logs/*
 sandbox/*
 tests/fzl/*
-tests/test_chai.py
 tests/test_chai_2.py
+tests/test_chai_3.py
 
 # ---------------- data ignores
 *data
